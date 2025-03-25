@@ -57,6 +57,7 @@ import com.google.maps.android.compose.Polyline
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
 import com.majesty.minifleettracker.presentation.history.ui.TripLogActivity
+import com.majesty.minifleettracker.presentation.login.ui.LoginActivity
 import com.majesty.minifleettracker.presentation.main.viewmodel.MainViewModel
 import com.majesty.minifleettracker.ui.theme.MiniFleetTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -80,7 +81,11 @@ class MainActivity : ComponentActivity() {
                         TopAppBar(
                             title = { Text("Mini Fleet Tracker") },
                             actions = {
-                                IconButton(onClick = { viewModel.logout() }) {
+                                IconButton(onClick = {
+                                    viewModel.logout()
+                                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                                    finish()
+                                }) {
                                     Icon(imageVector = Icons.Default.ExitToApp, contentDescription = "Logout")
                                 }
                             }
