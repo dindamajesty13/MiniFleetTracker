@@ -34,13 +34,20 @@ MiniFleetTracker is an Android application that simulates vehicle tracking, disp
 4. **Stop Simulation**: Tap the ⏹️ button to end the simulation.
 5. **View Trip History**: Tap trip history button to view log trip.
 
-## Screenshots)
+## Screenshots
 <p align="center">
   <img src="screenshots/login.png" alt="App Screenshot" width="200">
   <img src="screenshots/maps_view_start.png" alt="App Screenshot" width="200">
   <img src="screenshots/notification.png" alt="App Screenshot" width="200">
   <img src="screenshots/history.png" alt="App Screenshot" width="200">
 </p>
+
+## Demo Video
+<video width="600" controls>
+  <source src="screenshots/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 ## Future Enhancements
 - REST API integration for remote vehicle management
@@ -54,4 +61,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 For inquiries and support, reach out to majestydinda@gmail.com or open an issue in the repository.
-
