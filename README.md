@@ -43,10 +43,7 @@ MiniFleetTracker is an Android application that simulates vehicle tracking, disp
 </p>
 
 ## Demo Video
-<video width="600" controls>
-  <source src="screenshots/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Watch the demo](https://github.com/dindamajesty13/MiniFleetTracker/video.mp4)
 
 
 ## Future Enhancements
