@@ -50,5 +50,8 @@ MiniFleetTracker is an Android application that simulates vehicle tracking, disp
 Feel free to fork the project, create a feature branch, and submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+For inquiries and support, reach out to majestydinda@gmail.com or open an issue in the repository.
 
