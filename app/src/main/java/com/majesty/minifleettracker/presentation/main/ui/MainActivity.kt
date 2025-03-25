@@ -22,8 +22,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -43,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -52,10 +51,12 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.Polyline
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
+import com.majesty.minifleettracker.R
 import com.majesty.minifleettracker.presentation.history.ui.TripLogActivity
 import com.majesty.minifleettracker.presentation.login.ui.LoginActivity
 import com.majesty.minifleettracker.presentation.main.viewmodel.MainViewModel
@@ -82,11 +83,23 @@ class MainActivity : ComponentActivity() {
                             title = { Text("Mini Fleet Tracker") },
                             actions = {
                                 IconButton(onClick = {
+                                    startActivity(Intent(this@MainActivity, TripLogActivity::class.java))
+                                }) {
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.ic_history),
+                                        contentDescription = "History"
+                                    )
+                                }
+
+                                IconButton(onClick = {
                                     viewModel.logout()
                                     startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                                     finish()
                                 }) {
-                                    Icon(imageVector = Icons.Default.ExitToApp, contentDescription = "Logout")
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.ic_logout),
+                                        contentDescription = "Logout"
+                                    )
                                 }
                             }
                         )
@@ -130,8 +143,6 @@ fun VehicleDashboard(modifier: Modifier = Modifier, viewModel: MainViewModel) {
 
     val vehicleLocation = vehicleState.location
     val route = viewModel.route
-
-    val context = LocalContext.current
 
     Box(modifier = modifier.fillMaxSize()) {
         LiveVehicleMap(vehicleLocation, route)
@@ -240,16 +251,6 @@ fun VehicleDashboard(modifier: Modifier = Modifier, viewModel: MainViewModel) {
                     }
                 }
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Button(
-                onClick = { context.startActivity(Intent(context, TripLogActivity::class.java)) },
-                shape = RoundedCornerShape(12.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("📜 View Trip History")
-            }
         }
 
     }
@@ -274,7 +275,10 @@ fun LiveVehicleMap(vehicleLocation: LatLng, route: List<LatLng>) {
 
     GoogleMap(
         modifier = Modifier.fillMaxSize(),
-        cameraPositionState = cameraPositionState
+        cameraPositionState = cameraPositionState,
+        uiSettings = MapUiSettings(
+            zoomControlsEnabled = false
+        )
     ) {
         Marker(
             state = markerState,
