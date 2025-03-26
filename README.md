@@ -25,7 +25,8 @@ MiniFleetTracker is an Android application that simulates vehicle tracking, disp
    ```
 2. Open the project in Android Studio.
 3. Sync dependencies and build the project.
-4. Run the app on an emulator or physical device.
+4. Add google-service.json in app folder and change "YOUR_API_KEY" in AndroidManifest
+5. Run the app on an emulator or physical device.
 
 ## How to Use
 1. **Login**: Enter email and password to authenticate.
