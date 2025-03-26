@@ -46,6 +46,8 @@ MiniFleetTracker is an Android application that simulates vehicle tracking, disp
 ## Demo Video
 [Watch the demo](https://github.com/dindamajesty13/MiniFleetTracker/tree/master/screenshots/demo.mp4)
 
+## Demo Apk
+[Download for Testing](https://github.com/dindamajesty13/MiniFleetTracker/blob/master/screenshots/MiniFleetTracker.apk)
 
 ## Future Enhancements
 - REST API integration for remote vehicle management
